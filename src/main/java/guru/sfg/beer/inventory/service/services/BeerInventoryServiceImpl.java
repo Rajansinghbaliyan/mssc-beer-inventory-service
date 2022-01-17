@@ -2,7 +2,6 @@ package guru.sfg.beer.inventory.service.services;
 
 import guru.sfg.beer.inventory.service.domain.BeerInventory;
 import guru.sfg.beer.inventory.service.repositories.BeerInventoryRepository;
-import guru.sfg.beer.inventory.service.web.controllers.NotFoundException;
 import guru.sfg.beer.inventory.service.web.mappers.BeerInventoryMapper;
 import guru.sfg.beer.inventory.service.web.model.BeerInventoryDto;
 import guru.sfg.beer.inventory.service.web.model.BeerInventoryPageList;
@@ -49,4 +48,17 @@ public class BeerInventoryServiceImpl implements BeerInventoryService {
                 beerInventoryPage.getTotalElements()
         );
     }
+
+    @Override
+    public BeerInventoryDto update(UUID beerIUd, BeerInventoryDto dto) {
+        return null;
+    }
+
+    @Override
+    public BeerInventoryDto save(BeerInventoryDto dto) {
+        dto.setId(null);
+        return mapper.beerInventoryToBeerInventoryDto(
+                repository.save(mapper.beerInventoryDtoToBeerInventory(dto)));
+    }
+
 }

@@ -11,4 +11,9 @@ public interface BeerInventoryService {
     List<BeerInventoryDto> findAllBeerById(UUID beerId);
     List<BeerInventoryDto> findAllByUpc(String beerUpc);
     BeerInventoryPageList findAll(Pageable pageable);
+
+    BeerInventoryDto update(UUID beerInventoryId, BeerInventoryDto dto);
+
+    BeerInventoryDto save(BeerInventoryDto dto);
+
 }
