@@ -22,7 +22,7 @@ import java.util.UUID;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("api/v1/beer")
+@RequestMapping("/api/v1/beer")
 public class BeerInventoryController {
 
     private final BeerInventoryService beerInventoryService;
@@ -39,23 +39,23 @@ public class BeerInventoryController {
 
     @GetMapping("/inventory")
     public ResponseEntity<BeerInventoryPageList> listAllBeerInventory(@RequestParam(defaultValue = "25") int pageSize,
-                                                                      @RequestParam(defaultValue = "0") int pageNumber){
+                                                                      @RequestParam(defaultValue = "0") int pageNumber) {
         log.info("Getting All Beer Inventory");
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(beerInventoryService.findAll(PageRequest.of(pageNumber,pageSize)));
+                .body(beerInventoryService.findAll(PageRequest.of(pageNumber, pageSize)));
     }
 
     @PutMapping("/{beerId}")
     public ResponseEntity<BeerInventoryDto> update(@PathVariable UUID beerId,
-                                                   @RequestBody BeerInventoryDto dto){
+                                                   @RequestBody BeerInventoryDto dto) {
 
         return null;
     }
 
     @PostMapping("/{beerId}/inventory")
-    public ResponseEntity<BeerInventoryDto> save(@Validated @RequestBody BeerInventoryDto dto){
+    public ResponseEntity<BeerInventoryDto> save(@Validated @RequestBody BeerInventoryDto dto) {
         log.info("Post for Beer Inventory for BeerId: " + dto.getBeerId());
         return ResponseEntity
                 .status(HttpStatus.CREATED)

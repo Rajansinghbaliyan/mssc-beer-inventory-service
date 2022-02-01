@@ -1,13 +1,12 @@
 package guru.sfg.beer.inventory.service;
 
 
-import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class BeerInventoryApplicationTests {
 
-    @Test
+//    @Test
     public void contextLoads() {
     }
 
